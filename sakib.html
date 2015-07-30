@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style type="text/css">
+    div.one {
+    border-style: solid;
+    border-color: black;
+}
+</style>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      //google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Performance', 'Years'],
+          [ 8,      12],
+          [ 4,      5],
+          [ 11,     14],
+          [ 4,      5],
+          [ 0,      3],
+          [ 6,    7],
+          [ 20,    8]
+        ]);
+
+        var options = {
+          title: 'Student Perfomance',
+          hAxis: {title: 'Years', minValue: 0, maxValue: 15},
+          vAxis: {title: 'Performances', minValue: 0, maxValue: 15},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  
+  <body bgcolor="#008B8B">
+    <h1 align="center"> Interactive Graph for Students Performances</h1>
+    <div class="one">
+    <div align="center" id="chart_div" style="width: 1345px; height: 500px;">
+    <p> Enter the values for years  </p><br>
+    
+    <input type="number" name="input" Placeholder="Enter the value b/w 1 to 20" required/>  <br><br>
+    <input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/><br><br> <input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/><br><br> <input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/><br><br> <input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/><br>
+
+     <p> Enter the values of Performances  </p>
+     <input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/>  <br><br> <input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/>  <br><br><input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/>  <br><br><input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/>  <br><br><input type="number" name="input" Placeholder="Enter the value b/w 1 to 20"/>  <br><br>
+      
+    <button  onclick="drawChart()">Submit </button> </div></div>
+  </body>
+</html>
